@@ -1,0 +1,9 @@
+{
+    "imports": {
+        "grammy": "https://deno.land/x/grammy@v1.12.0/mod.ts",
+        "grammy/autoretry": "https://esm.sh/@grammyjs/auto-retry",
+        "grammy/runner": "https://deno.land/x/grammy_runner@v1.0.4/mod.ts",
+        "http": "https://deno.land/std@0.167.0/http/server.ts",
+        "grammy/convs": "https://deno.land/x/grammy_conversations@v1.1.0/mod.ts"
+    }
+}
