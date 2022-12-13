@@ -20,8 +20,8 @@ shelf_composer.on("message", async (ctx) => {
                 reply_markup: { remove_keyboard: true },
             });
             await ctx.replyWithDocument(bookdata.file_id);
-        } catch (e) {
+        } catch (_e) {
             await ctx.reply("Невідома книга!");
         }
     }
-})
+});

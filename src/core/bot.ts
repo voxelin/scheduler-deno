@@ -1,4 +1,3 @@
-import { Bot } from "grammy";
 import { composer } from "./commands.ts";
 import { CustomClient } from "./extends/bot.ts";
 
