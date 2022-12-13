@@ -15,5 +15,5 @@ serve(async (req) => {
             }
         }
     }
-    return new Response();
+    return Response.redirect(`https://${bot.botInfo.username}.t.me`)
 });
