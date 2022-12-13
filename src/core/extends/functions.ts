@@ -2,7 +2,7 @@ import { format, isWeekend } from "date-fns";
 import { utcToZonedTime } from "date-fns-tz";
 import { schedule } from "../data/schedule.ts";
 
-const localdate = utcToZonedTime(new Date(), "Europe/Kyiv");
+const localdate = utcToZonedTime(new Date(), "Europe/Kiev");
 
 export const handleLink = () => {
     const day = format(localdate, "EEEE");
