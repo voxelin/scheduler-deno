@@ -13,7 +13,10 @@ serve(async (req) => {
             } catch (err) {
                 console.error(err);
             }
-        } else if (url.pathname === "/setWebhook") {
+        }
+    } else if (req.method === "GET") {
+        const url = new URL(req.url);
+        if (url.pathname === "/setWebhook") {
             await bot.api.setWebhook(Deno.env.get("DENO_DEPLOY_URL") + "/" + bot.token);
             return {
                 status: 200,
