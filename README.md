@@ -6,6 +6,7 @@ This is a template for a [GrammY](https://grammy.dev) bot that can be deployed t
 2. Create a bot using [@BotFather](https://t.me/botfather) and copy the token.
 3. Go to [Deno Deploy](https://dash.deno.com/new) and choose your repository.
 4. Enter the token as the `BOT_TOKEN` environment variable.
+5. Enter Deno domain in `DOMAIN` environment variable.
 5. Click "Deploy" and wait for the deployment to finish.
 6. Visit `https://<your-repo>.deno.dev/setWebhook` to apply a webhook to your bot.
 7. Send a message to your bot and enjoy!
