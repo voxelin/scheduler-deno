@@ -18,10 +18,10 @@ serve(async (req) => {
         const url = new URL(req.url);
         if (url.pathname === "/setWebhook") {
             await bot.api.setWebhook(`https://${Deno.env.get("DOMAIN")}/${bot.token}`);
-            return {
+            return Response.json({
                 status: 200,
                 body: "Successfully set webhook.",
-            };
+            });
         }
     }
     return Response.redirect(`https://${bot.botInfo.username}.t.me`)
