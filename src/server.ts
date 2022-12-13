@@ -17,7 +17,7 @@ serve(async (req) => {
     } else if (req.method === "GET") {
         const url = new URL(req.url);
         if (url.pathname === "/setWebhook") {
-            await bot.api.setWebhook(Deno.env.get("DOMAIN") + "/" + bot.token);
+            await bot.api.setWebhook(`https://${Deno.env.get("DOMAIN")}/${bot.token}`);
             return {
                 status: 200,
                 body: "Successfully set webhook.",
