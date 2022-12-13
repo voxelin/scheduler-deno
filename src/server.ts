@@ -17,12 +17,14 @@ serve(async (req) => {
     } else if (req.method === "GET") {
         const url = new URL(req.url);
         if (url.pathname === "/setWebhook") {
-            await bot.api.setWebhook(`https://${Deno.env.get("DOMAIN")}/${bot.token}`);
+            await bot.api.setWebhook(
+                `https://${Deno.env.get("DOMAIN")}/${bot.token}`,
+            );
             return Response.json({
                 status: 200,
                 body: "Successfully set webhook.",
             });
         }
     }
-    return Response.redirect(`https://${bot.botInfo.username}.t.me`)
+    return Response.redirect(`https://${bot.botInfo.username}.t.me`);
 });
