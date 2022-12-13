@@ -49,7 +49,7 @@ other_commands_composer.command("cancel", async (ctx) => {
 
 other_commands_composer.command("help", async (ctx) => {
     await ctx.reply(
-        "📚 <b>Команди:</b>\n" +
+        "📚 *Команди:*\n" +
             "`/start` - Початкова команда.\n" +
             "`/about` - Базова інформація про бота.\n" +
             "`/help` - Список команд.\n" +
