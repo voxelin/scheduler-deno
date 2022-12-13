@@ -2,11 +2,12 @@
 This is a template for a [GrammY](https://grammy.dev) bot that can be deployed to [Deno Deploy](https://deno.com/deploy).
 
 ## Usage
-1. Click the button below to deploy this template to Deno Deploy.
+1. Fork this repository.
 2. Create a bot using [@BotFather](https://t.me/botfather) and copy the token.
-3. Set the `BOT_TOKEN` environment variable to the token you just copied.
-4. Send `/start` to your bot to start it.
+3. Go to [Deno Deploy](https://dash.deno.com/new) and choose your repository.
+4. Enter the token as the `BOT_TOKEN` environment variable.
+5. Click "Deploy" and wait for the deployment to finish.
+6. Visit `https://<your-repo>.deno.dev/setWebhook` to apply a webhook to your bot.
+7. Send a message to your bot and enjoy!
 
-[![Deploy to Deno Deploy](https://0x0.st/onBy.svg)](https://dash.deno.com/new?url=https://raw.githubusercontent.com/voxelin/deno-bot-template/master/src/server.ts&env=BOT_TOKEN)
-
-<small>Made with ❤️ by [voxelin](https://github.com/voxelin)</small>
+<sub>Made with ❤️ by [voxelin](https://github.com/voxelin)</sub>
