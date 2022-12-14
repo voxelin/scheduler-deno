@@ -1,18 +1,10 @@
-# Deno Deploy GrammY Bot Template 🤖
+# Scheduler Bot. School 🤵🏻 
 
-This is a template for a [GrammY](https://grammy.dev) bot that can be deployed
-to [Deno Deploy](https://deno.com/deploy).
+This bot was created to manage the school schedule. It helps to keep track of the schedule and notify the user about the upcoming lessons.
 
-## Usage
-
-1. Fork this repository.
-2. Create a bot using [@BotFather](https://t.me/botfather) and copy the token.
-3. Go to [Deno Deploy](https://dash.deno.com/new) and choose your repository.
-4. Enter the token as the `BOT_TOKEN` environment variable.
-5. Enter Deno domain in `DOMAIN` environment variable.
-6. Click "Deploy" and wait for the deployment to finish.
-7. Visit `https://<your-repo>.deno.dev/setWebhook` to apply a webhook to your
-   bot.
-8. Send a message to your bot and enjoy!
-
-<sub>Made with ❤️ by [voxelin](https://github.com/voxelin)</sub>
+## How to use
+> **WARNING:** This bot is not yet ready for use. It is in closed beta only for my class.
+1. Add the bot to your group.
+2. Send `/start` to the bot.
+3. Use `/help` to get more information about the bot.
+4. Have fun!
