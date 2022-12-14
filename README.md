@@ -1,4 +1,4 @@
-# Scheduler Bot. School 🤵🏻 
+# Scheduler Bot. School 🗓
 
 This bot was created to manage the school schedule. It helps to keep track of the schedule and notify the user about the upcoming lessons.
 
