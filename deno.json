@@ -3,8 +3,7 @@
     "fmt": {
         "options": {
             "lineWidth": 80,
-            "indentWidth": 4,
-            "singleQuote": false
+            "indentWidth": 4
         },
         "files": {
             "include": [

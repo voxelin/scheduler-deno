@@ -2,27 +2,26 @@ import { format, getWeekOfMonth, isWeekend } from "date-fns";
 import { utcToZonedTime } from "date-fns-tz";
 import { Composer } from "grammy";
 import { handleLink } from "../extends/functions.ts";
-import { show_keyboard_sch } from "../types/dx.ts";
+import { show_schedule_keyboard } from "../handlers/dx.ts";
 
 export const school_commands_composer = new Composer();
+const zonedTime = utcToZonedTime(new Date(), "Europe/Kiev");
 
 school_commands_composer.command("schedule", async (ctx) => {
-    const date = utcToZonedTime(new Date(), "Europe/Kiev");
-    await show_keyboard_sch(ctx, format(date, "EEEE"));
+    await show_schedule_keyboard(ctx, format(zonedTime, "EEEE"));
 });
 
 school_commands_composer.command("link", async (ctx) => {
-    const date = utcToZonedTime(new Date(), "Europe/Kiev");
-    if (isWeekend(date)) {
+    if (isWeekend(zonedTime)) {
         return await ctx.reply("Сьогодні вихідний 🥳");
     }
-    const _d = await handleLink();
-    const { urls, next } = _d;
-    let { name } = _d;
-    if (Object.keys(_d).length === 0) {
+    const raw_data = handleLink();
+    const { links, next } = raw_data;
+    let { name } = raw_data;
+    if (Object.keys(raw_data).length === 0) {
         return ctx.reply("Уроки закінчились, відпочивайте! 🫂");
     }
-    const oddWeek = getWeekOfMonth(date) % 2;
+    const oddWeek = getWeekOfMonth(zonedTime) % 2;
     switch (name) {
         case "🎨 Мистецтво | 📜 Основи здоров'я":
             if (oddWeek == 0) {
@@ -39,24 +38,26 @@ school_commands_composer.command("link", async (ctx) => {
             }
             break;
         case "📚 Англійська":
-            urls![0] = `1. <a href="${urls![0]}">Чепурна</a>\n2. <a href="${
-                urls![1]
+            links![0] = `1. <a href="${links![0]}">Чепурна</a>\n2. <a href="${
+                links![1]
             }">Дунько</a>`;
             break;
         case "💻 Інформатика":
-            urls![0] = `1. <a href="${urls![0]}">Беднар</a>\n2. <a href="${
-                urls![1]
+            links![0] = `1. <a href="${links![0]}">Беднар</a>\n2. <a href="${
+                links![1]
             }">Шеремет</a>`;
             break;
         default:
             break;
     }
-    if (urls?.length != 0) {
+    if (links?.length != 0) {
         next == true
             ? await ctx.reply(
-                `Посилання на наступний урок: <b>${name}</b> \n${urls![0]}`,
+                `Посилання на наступний урок: <b>${name}</b> \n${links![0]}`,
             )
-            : await ctx.reply(`Урок <b>${name}</b> вже почався: \n${urls![0]}`);
+            : await ctx.reply(
+                `Урок <b>${name}</b> вже почався: \n${links![0]}`,
+            );
     } else {
         await ctx.reply("На жаль, на урок посилання немає. 🤔");
     }
@@ -65,5 +66,5 @@ school_commands_composer.command("link", async (ctx) => {
 school_commands_composer.on("callback_query", async (ctx) => {
     const day = ctx.callbackQuery.data ?? "Monday";
     await ctx.answerCallbackQuery();
-    await show_keyboard_sch(ctx, day, false);
+    await show_schedule_keyboard(ctx, day, false);
 });
