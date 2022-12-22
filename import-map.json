@@ -1,12 +1,12 @@
 {
     "imports": {
-        "grammy": "https://deno.land/x/grammy@v1.12.0/mod.ts",
+        "grammy": "https://deno.land/x/grammy@v1.12.1/mod.ts",
         "grammy/autoretry": "https://esm.sh/@grammyjs/auto-retry@1.1.1",
         "grammy/runner": "https://deno.land/x/grammy_runner@v1.0.4/mod.ts",
         "grammy/convs": "https://deno.land/x/grammy_conversations@v1.1.0/mod.ts",
         "grammy/pm": "https://deno.land/x/grammy_parse_mode@1.5.0/mod.ts",
         "date-fns-tz": "https://esm.sh/date-fns-tz@1.3.7",
         "date-fns": "https://esm.sh/date-fns@2.29.3",
-        "http": "https://deno.land/std@0.167.0/http/server.ts"
+        "http": "https://deno.land/std@0.170.0/http/server.ts"
     }
 }

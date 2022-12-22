@@ -2,13 +2,13 @@ import { format, getWeekOfMonth, isWeekend } from "date-fns";
 import { utcToZonedTime } from "date-fns-tz";
 import { Composer } from "grammy";
 import { handleLink } from "../extends/functions.ts";
-import { show_schedule_keyboard } from "../handlers/dx.ts";
+import { showInlineKeyboard } from "../handlers/dynamic.ts";
 
 export const school_commands_composer = new Composer();
 const zonedTime = utcToZonedTime(new Date(), "Europe/Kiev");
 
 school_commands_composer.command("schedule", async (ctx) => {
-    await show_schedule_keyboard(ctx, format(zonedTime, "EEEE"));
+    await showInlineKeyboard(ctx, format(zonedTime, "EEEE"));
 });
 
 school_commands_composer.command("link", async (ctx) => {
@@ -65,6 +65,5 @@ school_commands_composer.command("link", async (ctx) => {
 
 school_commands_composer.on("callback_query", async (ctx) => {
     const day = ctx.callbackQuery.data ?? "Monday";
-    await ctx.answerCallbackQuery();
-    await show_schedule_keyboard(ctx, day, false);
+    await showInlineKeyboard(ctx, day, false);
 });
